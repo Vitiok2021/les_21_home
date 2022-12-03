@@ -835,6 +835,10 @@ h6 {
   background: url("../img/decor/posts-img--03.svg") 0 3px no-repeat;
 }
 
+.card-posts__column {
+  padding-bottom: 20px;
+}
+
 .card-posts__date {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1165,7 +1169,9 @@ h6 {
   }
 
   .main-posts__body {
-    gap: 1.875rem;
+    -webkit-column-gap: 1.875rem;
+       -moz-column-gap: 1.875rem;
+            column-gap: 1.875rem;
   }
 
   .head-posts:not(:last-child) {
@@ -1204,13 +1210,14 @@ h6 {
   .main-posts__body {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
+    row-gap: 40px;
   }
 
   .card-posts {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 20px;
+    gap: 15px;
   }
 }
 
@@ -1245,10 +1252,6 @@ h6 {
 }
 
 @media (max-width: 550px) {
-  .main-posts__body {
-    gap: 40px;
-  }
-
   .card-posts {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1443,7 +1446,9 @@ h6 {
   }
 
   .main-posts__body {
-    gap: 0.3125rem;
+    -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
+            column-gap: 1.25rem;
   }
 
   .head-posts:not(:last-child) {
@@ -2101,15 +2106,19 @@ h6 {
     }
 }
 
-@supports (gap: clamp( 0.3125rem , -0.2194148936rem  +  2.6595744681vw , 1.875rem )) {
+@supports ((-moz-column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem )) or (column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem ))) {
     .main-posts__body {
-      gap: clamp( 0.3125rem , -0.2194148936rem  +  2.6595744681vw , 1.875rem );
+      -webkit-column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem );
+         -moz-column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem );
+              column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem );
     }
 }
 
-@supports not (gap: clamp( 0.3125rem , -0.2194148936rem  +  2.6595744681vw , 1.875rem )) {
+@supports not ((-moz-column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem )) or (column-gap: clamp( 1.25rem , 1.0372340426rem  +  1.0638297872vw , 1.875rem ))) {
     .main-posts__body {
-      gap: calc(0.3125rem + 1.5625 * (100vw - 20rem) / 58.75);
+      -webkit-column-gap: calc(1.25rem + 0.625 * (100vw - 20rem) / 58.75);
+         -moz-column-gap: calc(1.25rem + 0.625 * (100vw - 20rem) / 58.75);
+              column-gap: calc(1.25rem + 0.625 * (100vw - 20rem) / 58.75);
     }
 }
 
